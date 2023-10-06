@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+import math
+
+vstup = input("Co chcete počítat (krychle, kvádr, koule, čtverec, obdelník, kruh): ")
+metoda = ["objem", "obsah", "obvod"]
+těleso = ["krychle", "kvádr", "koule", "čtverec", "obdélník", "kruh"]
+
+if vstup in těleso:
+    
+    volba = input("Co chcete na tělesu počítat (objem, obsah, obvod): ")
+    
+    if volba in metoda:
+        print("Počítáme", volba, "pro", vstup)
+        
+        if volba == "objem":
+            if vstup == "krychle":
+                a = float(input("Zadejte stranu a: "))
+                result = a * a * a
+            elif vstup == "kvádr":
+                a = float(input("Zadejte stranu a: "))
+                b = float(input("Zadejte stranu b: "))
+                c = float(input("Zadejte stranu c: "))
+                result = a * b * c
+            elif vstup == "koule":
+                r = float(input("Zadejte poloměr r: "))
+                result = 4/3*r*r*r*math.pi
+            
+                
+            print(f"Objem {vstup}u je: {result}")
+        elif volba == "obsah":
+            if vstup == "čtverec":
+                a = float(input("Zadejte stranu a: "))
+                result = a * a
+            elif vstup == "obdélník":
+                a = float(input("Zadejte stranu a: "))
+                b = float(input("Zadejte stranu b: "))
+                result = a * b
+            elif vstup == "kruh":
+                r = float(input("Zadejte poloměr r: "))
+                result = math.pi * r * r
+                
+            print(f"Obsah {vstup}u je: {result}cm3")
+        elif volba == "obvod":
+            if vstup == "čtverec":
+                a = float(input("Zadejte délku strany: "))
+                result = 4 * a
+            elif vstup == "obdélník":
+                a = float(input("Zadejte délku strany a: "))
+                b = float(input("Zadejte délku strany b: "))
+                result = 2 * (a + b)
+            elif vstup == "kruh":
+                r = float(input("Zadejte poloměr: "))
+                result = 2 * math.pi * r
+                
+            print(f"Obvod {vstup}u je: {result}")
+        else:
+            print("Zadaná metoda není platná.")
+    else:
+        print("Zadaná metoda není platná.")
+else:
+    print("Těleso není v nabídce.")
